@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/phpdeploy":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/phpdeploy","hostpath":"/Users/sean/Projects/phpdeploy","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/sean/Projects/phpdeploy","disabled":false}}}
