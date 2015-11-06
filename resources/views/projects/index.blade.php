@@ -18,7 +18,7 @@
             @foreach( $projects as $project)
                 <tr>
                     <th>
-                        {{ $project->name }}
+                        <a href="{!! route( 'project.show', $project->id ) !!}">{{ $project->name }}</a>
                     </th>
                 </tr>
             @endforeach
