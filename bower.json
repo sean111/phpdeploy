@@ -1,0 +1,19 @@
+{
+  "name": "phpdeploy",
+  "description": "PHP Deployment System",
+  "main": "",
+  "authors": [
+    "Sean Burke <sburke@globalfit.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sean111/phpdeploy",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
