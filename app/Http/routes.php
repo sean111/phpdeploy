@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource( 'project', 'ProjectController' );
+Route::get( '/projects', [ 'as' => 'project.index', 'uses' => 'ProjectController@index' ] );
+
+Route::resource( 'server', 'ServerController' );
+Route::get( '/servers', [ 'as' => 'server.index', 'uses' => 'ServerController@index' ] );

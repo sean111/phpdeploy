@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section( 'content' )
-    <table>
+    <table class='table'>
         <tr>
             <th>
                 Name
@@ -17,9 +17,17 @@
         @else
             @foreach( $projects as $project)
                 <tr>
-                    <th>
+                    <td>
                         <a href="{!! route( 'project.show', $project->id ) !!}">{{ $project->name }}</a>
-                    </th>
+                    </td>
+                    <td>
+                        <a href="{!! route( 'project.edit', $project->id ) !!}" class="btn btn-warning">Edit</a>
+                    </td>
+                    <td>
+                        {!! Form::open( [ 'route' => [ 'project.destroy', $project->id ], 'method' => 'delete' ] ) !!}
+                            {!! Form::submit( 'Delete', [ 'class' => 'btn btn-danger' ] ) !!}
+                        {!! Form::close() !!}
+                    </td>
                 </tr>
             @endforeach
         @endif

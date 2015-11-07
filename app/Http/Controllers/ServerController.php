@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Project;
 
-class ProjectController extends Controller
+class ServerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-        \Debugbar::info( var_export( $projects, true ) );
-        return view( 'projects/index', [ 'projects' => $projects ] );
+        //
     }
 
     /**
@@ -29,7 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view( 'projects/create' );
+        //
     }
 
     /**
@@ -40,15 +37,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $name = \Input::get( 'name' );
-        if( !empty( $name ) ) {
-            $project = new Project;
-            $project->name = $name;
-            $project->save();
-            var_dump( $project );
-            return redirect()->route( 'project.show', [ $project->id ] );
-        }
-
+        //
     }
 
     /**
@@ -70,8 +59,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        $project = Project::findOrFail( $id );
-        return view( 'projects/edit', [ 'project' => $project ] );
+        //
     }
 
     /**
@@ -94,9 +82,6 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        print "Deleting #$id<br />";
-        $project = Project::findOrFail( $id );
-        $project->delete();
-        return redirect()->route( 'project.index' );
+        //
     }
 }
