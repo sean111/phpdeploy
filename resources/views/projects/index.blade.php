@@ -21,7 +21,7 @@
                         <a href="{!! route( 'project.show', $project->id ) !!}">{{ $project->name }}</a>
                     </td>
                     <td>
-                        <a href="{!! route( 'project.edit', $project->id ) !!}" class="btn btn-warning">Edit</a>
+                        <a href="{!! route( 'project.edit', $project->id ) !!}" class="btn btn-warning">Rename</a>
                     </td>
                     <td>
                         {!! Form::open( [ 'route' => [ 'project.destroy', $project->id ], 'method' => 'delete' ] ) !!}

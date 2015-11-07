@@ -1,5 +1,5 @@
 @extends( 'layout' )
-@section( 'conent' )
-    <h2>Editing <strong>{{ $project->name }}</strong></h2>
+@section( 'content' )
+    <h2>Rename <strong>{{ $target_project->name }}</strong></h2>
     @include( 'projects/project_form' )
 @endsection
