@@ -22,7 +22,7 @@
               <ul class="nav navbar-nav">
                 <li><a href="{!! route( 'project.index' ) !!}"><i class="fa fa-briefcase fa-1"></i> Projects</a></li>
                 <li><a href="{!! route( 'server.index' ) !!}"><i class="fa fa-server fa-1"></i> Servers</a></li>
-                <li><a href="#"><i class="fa fa-plug fa-1"></i> Environments</a></li>
+                <li><a href="{!! route( 'environment.index' ) !!}"><i class="fa fa-plug fa-1"></i> Environments</a></li>
 
               </ul>
               <form class="navbar-form navbar-right" role="search">

@@ -28,7 +28,7 @@ class ServerController extends Controller
      */
     public function create()
     {
-        //
+        return view( 'server/create' );
     }
 
     /**
@@ -39,7 +39,18 @@ class ServerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'host' => 'required',
+            'username' => 'required',
+            'ssh_key' => 'required'
+        ] );
+        $name = \Input::get( 'name' );
+        $host = \Input::get( 'host' );
+        $username = \Input::get( 'username' );
+        $ssh_key = \Input::get( 'ssh_key' );
+        $server = Server::create( [ 'name' => $name, 'host' => $host, 'username' => $username, 'ssh_key' => $ssh_key ] );
+        return redirect()->route( 'server.index' );
     }
 
     /**
@@ -61,7 +72,8 @@ class ServerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $server = Server::findOrFail( $id );
+        return view( 'server/edit', [ 'server' => $server ] );
     }
 
     /**
@@ -73,7 +85,20 @@ class ServerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'host' => 'required',
+            'username' => 'required',
+            'ssh_key' => 'required'
+        ] );
+
+        $server = Server::findOrFail( $id );
+        $server->name = \Input::get( 'name' );
+        $server->host = \Input::get( 'host' );
+        $server->username = \Input::get( 'username' );
+        $server->ssh_key = \Input::get( 'ssh_key' );
+        $server->save();
+        return redirect()->route( 'server.index' );
     }
 
     /**

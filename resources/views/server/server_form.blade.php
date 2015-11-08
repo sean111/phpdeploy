@@ -1,14 +1,24 @@
 @if( isset( $server ) )
-    {!! Form::model( $server, [ 'route' => [ 'project.update', $server->id ] ] ) !!}
+    {!! Form::model( $server, [ 'route' => [ 'server.update', $server->id ], 'method' => 'put' ] ) !!}
 @else
-    {!! Form::open( [ 'route' => 'project.store' ] ) !!}
+    {!! Form::open( [ 'route' => 'server.store' ] ) !!}
 @endif
-    {!! Form::label( 'name', 'Name' ) !!}
-    {!! Form::text( 'name' ) !!}
-    {!! Form::label( 'host', 'Host Name' ) !!}
-    {!! Form::text( 'host' ) !!}
-    {!! Form::label( 'username', 'Username' ) !!}
-    {!! Form::text( 'username' ) !!}
+    <div class="form-group">
+        {!! Form::label( 'name', 'Name' ) !!}
+        {!! Form::text( 'name', null, [ 'class' => 'form-control' ] ) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label( 'host', 'Host Name' ) !!}
+        {!! Form::text( 'host', null, [ 'class' => 'form-control' ] ) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label( 'username', 'Username' ) !!}
+        {!! Form::text( 'username', null, [ 'class' => 'form-control' ] ) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label( 'ssh_key', 'Public SSH Key' ) !!}
+        {!! Form::textarea( 'ssh_key', null, [ 'class' => 'form-control' ] ) !!}
+    </div>
     @if( isset( $server ) )
         {!! Form::submit( 'Update Server') !!}
     @else

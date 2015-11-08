@@ -28,10 +28,13 @@
                         {{ $server->name }}
                     </td>
                     <td>
-                        {{ $serer->host }}
+                        {{ $server->host }}
                     </td>
                     <td>
                         {{ $server->username }}
+                    </td>
+                    <td>
+                        <a href="{!! route( 'server.edit', $server->id ) !!}" class="btn btn-warning">Edit</a>
                     </td>
                 </tr>
             @endforeach

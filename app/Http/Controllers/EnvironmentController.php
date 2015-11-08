@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Environment;
 use App\Project;
+use App\Server;
 
-class ProjectController extends Controller
+class EnvironmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +19,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-        \Debugbar::info( var_export( $projects, true ) );
-        return view( 'projects/index', [ 'projects' => $projects ] );
+        $environments = Environment::all();
+        return view( 'environment/index', [ 'environments' => $environments ] );
     }
 
     /**
@@ -29,7 +30,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view( 'projects/create' );
+        $projects = Project::all();
+        $servers = Server::all();
+        return view( 'environment/create' );
     }
 
     /**
@@ -40,15 +43,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $name = \Input::get( 'name' );
-        if( !empty( $name ) ) {
-            $project = new Project;
-            $project->name = $name;
-            $project->save();
-            var_dump( $project );
-            return redirect()->route( 'project.show', [ $project->id ] );
-        }
-
+        //
     }
 
     /**
@@ -70,8 +65,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        $project = Project::findOrFail( $id );
-        return view( 'projects/edit', [ 'target_project' => $project ] );
+        //
     }
 
     /**
@@ -83,14 +77,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate( $request, [
-            'name' => 'required'
-        ] );
-        $project = Project::findOrFail( $id );
-        $project->name = \Input::get( 'name' );
-        $project->save();
-        return redirect()->route( 'project.index' );
-
+        //
     }
 
     /**
@@ -101,9 +88,6 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        print "Deleting #$id<br />";
-        $project = Project::findOrFail( $id );
-        $project->delete();
-        return redirect()->route( 'project.index' );
+        //
     }
 }

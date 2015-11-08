@@ -1,5 +1,5 @@
 @if( isset( $target_project ) )
-    {!! Form::model( $target_project, [ 'route' => [ 'project.update', $target_project->id ] ] ) !!}
+    {!! Form::model( $target_project, [ 'route' => [ 'project.update', $target_project->id ], 'method' => 'put' ] ) !!}
 @else
     {!! Form::open( [ 'route' => 'project.store' ] ) !!}
 @endif

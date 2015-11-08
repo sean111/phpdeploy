@@ -20,3 +20,6 @@ Route::get( '/projects', [ 'as' => 'project.index', 'uses' => 'ProjectController
 
 Route::resource( 'server', 'ServerController' );
 Route::get( '/servers', [ 'as' => 'server.index', 'uses' => 'ServerController@index' ] );
+
+Route::resource( 'environment', 'EnvironmentController' );
+Route::get( '/environments', [ 'as' => 'environment.index', 'uses' => 'EnvironmentController@index' ] );
