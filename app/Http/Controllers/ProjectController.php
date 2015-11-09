@@ -45,7 +45,6 @@ class ProjectController extends Controller
             $project = new Project;
             $project->name = $name;
             $project->save();
-            var_dump( $project );
             return redirect()->route( 'project.show', [ $project->id ] );
         }
 
@@ -59,7 +58,8 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project::findOrFail( $id );
+        return view( 'projects/show', [ 'project' => $project] );
     }
 
     /**

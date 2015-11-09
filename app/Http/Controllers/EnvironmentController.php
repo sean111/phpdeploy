@@ -30,9 +30,10 @@ class EnvironmentController extends Controller
      */
     public function create()
     {
-        $projects = Project::all();
-        $servers = Server::all();
-        return view( 'environment/create' );
+        $projects = Project::lists( 'name', 'id' )->prepend( '' );
+        \Debugbar::info( $projects );
+        $servers = Server::lists( 'name', 'id' )->prepend( '' );
+        return view( 'environment/create', [ 'projects' => $projects, 'servers' => $servers ] );
     }
 
     /**
@@ -43,7 +44,21 @@ class EnvironmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'path' => 'required',
+            'project_id' => 'required',
+            'server_id' => 'required',
+        ] );
+
+        $environment = Environment::create( [
+            'name' => \Input::get( 'name' ),
+            'path' => \Input::get( 'path' ),
+            'project_id' => \Input::get( 'project_id' ),
+            'server_id' => \Input::get( 'server_id' ),
+        ] );
+
+        return redirect()->route( 'environment.index' );
     }
 
     /**

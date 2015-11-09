@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Environment extends Model
 {
     protected $table = 'environments';
+    protected $fillable = [ 'name', 'path', 'project_id', 'server_id' ];
 
-    public function projects() {
-        return $this->belongsToMany( 'Project' );
+    public function project() {
+        return $this->belongsTo( 'App\Project' );
     }
 
-    public function serve() {
-        return $this->hasOne( 'Server' );
+    public function server() {
+        return $this->hasOne( 'App\Server', 'id', 'server_id' );
     }
 }

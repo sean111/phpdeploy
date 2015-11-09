@@ -8,6 +8,6 @@ class Project extends Model
 {
     protected $table = 'projects';
     public function environments() {
-        return $this->hasMany( 'Enviroment' );
+        return $this->hasMany( 'App\Environment' );
     }
 }

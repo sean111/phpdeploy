@@ -6,8 +6,8 @@
     {!! Form::label( 'name', 'Name' ) !!}
     {!! Form::text( 'name' ) !!}
     @if( isset( $target_project ) )
-        {!! Form::submit( 'Rename Project') !!}
+        {!! Form::submit( 'Rename Project', [ 'class' => 'btn btn-success' ] ) !!}
     @else
-        {!! Form::submit( 'Create Project') !!}
+        {!! Form::submit( 'Create Project', [ 'class' => 'btn btn-success' ] ) !!}
     @endif
 {!! Form::close() !!}

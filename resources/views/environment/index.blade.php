@@ -6,6 +6,9 @@
                 Name
             </th>
             <th>
+                Path
+            </th>
+            <th>
                 Project
             </th>
             <th>
@@ -23,7 +26,20 @@
             </tr>
         @else
             @foreach($environments as $env)
-
+                <tr>
+                    <td>
+                        {{ $env->name }}
+                    </td>
+                    <td>
+                        {{ $env->path }}
+                    </td>
+                    <td>
+                        <a href="{!! route( 'project.show', $env->project->id )!!}">{{ $env->project->name }}</a>
+                    </td>
+                    <td>
+                        <a href="{!! route( 'server.show', $env->server->id ) !!}">{{ $env->server->name }}</a>
+                    </td>
+                </tr>
             @endforeach
         @endif
     </table>

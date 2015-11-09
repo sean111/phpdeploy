@@ -20,8 +20,8 @@
         {!! Form::textarea( 'ssh_key', null, [ 'class' => 'form-control' ] ) !!}
     </div>
     @if( isset( $server ) )
-        {!! Form::submit( 'Update Server') !!}
+        {!! Form::submit( 'Update Server', [ 'class' => 'btn btn-success' ] ) !!}
     @else
-        {!! Form::submit( 'Create Server') !!}
+        {!! Form::submit( 'Create Server', [ 'class' => 'btn btn-success' ] ) !!}
     @endif
 {!! Form::close() !!}

@@ -42,6 +42,6 @@
             </div>
         </div>
 
-        <script type="text/javascript" src="/js/all.js"/>
+        <script type="text/javascript" src="/js/all.js"></script>
     </body>
 </html>
