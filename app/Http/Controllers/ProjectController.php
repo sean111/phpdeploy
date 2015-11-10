@@ -43,7 +43,7 @@ class ProjectController extends Controller
         $name = \Input::get( 'name' );
         if( !empty( $name ) ) {
             $project = new Project;
-            $project->name = $name;
+            $project->name = $name;            
             $project->save();
             return redirect()->route( 'project.show', [ $project->id ] );
         }

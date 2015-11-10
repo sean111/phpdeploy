@@ -58,6 +58,9 @@ class EnvironmentController extends Controller
             'server_id' => \Input::get( 'server_id' ),
         ] );
 
+        $environment->createToken();
+        $environment->save();
+
         return redirect()->route( 'environment.index' );
     }
 

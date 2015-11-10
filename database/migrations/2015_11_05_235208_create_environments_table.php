@@ -20,6 +20,7 @@ class CreateEnvironmentsTable extends Migration
             $table->foreign( 'project_id' )->references( 'id' )->on( 'projects' );
             $table->integer( 'server_id' )->unsigned();
             $table->foreign( 'server_id' )->references( 'id' )->on( 'servers' );
+            $table->string( 'token', 2048 );
             $table->timestamps();
         });
     }
