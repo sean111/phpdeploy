@@ -16,6 +16,8 @@ class CreateEnvironmentsTable extends Migration
             $table->increments('id');
             $table->string( 'name', 2048 );
             $table->string( 'path', 2048 );
+            $table->string( 'repo', 4096 );
+            $table->string( 'branch', 128 )->default( 'master' );
             $table->integer( 'project_id' )->unsigned();
             $table->foreign( 'project_id' )->references( 'id' )->on( 'projects' );
             $table->integer( 'server_id' )->unsigned();

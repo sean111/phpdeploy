@@ -12,6 +12,18 @@
         {!! Form::text( 'path', null, [ 'class' => 'form-control' ]  ) !!}
     </div>
     <div class="form-group">
+        {!! Form::label( 'path', 'Path' ) !!}
+        {!! Form::text( 'path', null, [ 'class' => 'form-control' ]  ) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label( 'repo', 'Repo URL' ) !!}
+        {!! Form::text( 'repo', null, [ 'class' => 'form-control' ]  ) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label( 'branch', 'Branch' ) !!}
+        {!! Form::text( 'branch', null, [ 'class' => 'form-control', 'placeholder' => 'master' ]  ) !!}
+    </div>
+    <div class="form-group">
         {!! Form::label( 'project_id', 'Project' ) !!}
         {!! Form::select( 'project_id', $projects, \Input::old( 'project_id' ), [ 'class' => 'form-control' ]  ) !!}
     </div>
