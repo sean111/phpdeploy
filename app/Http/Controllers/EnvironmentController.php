@@ -31,7 +31,6 @@ class EnvironmentController extends Controller
     public function create()
     {
         $projects = Project::lists( 'name', 'id' )->prepend( '' );
-        \Debugbar::info( $projects );
         $servers = Server::lists( 'name', 'id' )->prepend( '' );
         return view( 'environment/create', [ 'projects' => $projects, 'servers' => $servers ] );
     }
@@ -49,6 +48,7 @@ class EnvironmentController extends Controller
             'path' => 'required',
             'project_id' => 'required',
             'server_id' => 'required',
+            'repo' => 'required'
         ] );
 
         $environment = Environment::create( [
@@ -56,6 +56,7 @@ class EnvironmentController extends Controller
             'path' => \Input::get( 'path' ),
             'project_id' => \Input::get( 'project_id' ),
             'server_id' => \Input::get( 'server_id' ),
+            'repo' => \Inpit::get( 'repo' )
         ] );
 
         $environment->createToken();
@@ -83,7 +84,11 @@ class EnvironmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $env = Environment::findOrFail( $id );
+        $projects = Project::lists( 'name', 'id' )->prepend( '' );
+        $servers = Server::lists( 'name', 'id' )->prepend( '' );
+
+        return view( 'environment.edit', [ 'target_env' => $env, 'projects' => $projects, 'servers' => $servers ] );
     }
 
     /**
@@ -95,7 +100,22 @@ class EnvironmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'path' => 'required',
+            'project_id' => 'required',
+            'server_id' => 'required',
+            'repo' => 'required'
+        ] );
+
+        $env = Environment::findOrFail( $id );
+        $env->name = \Input::get( 'name' );
+        $env->path = \Input::get( 'path' );
+        $env->repo = \Input::get( 'repo' );
+        $env->branch = \Input::get( 'branch' );
+        $env->server_id = \Input::get( 'server_id' );
+        $env->project_id = \Input::get( 'project_id' );
+        $env->save();
     }
 
     /**

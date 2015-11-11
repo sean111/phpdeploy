@@ -9,6 +9,12 @@
                 Path
             </th>
             <th>
+                Repo
+            </th>
+            <th>
+                Branch
+            </th>
+            <th>
                 Project
             </th>
             <th>
@@ -34,11 +40,20 @@
                         {{ $env->path }}
                     </td>
                     <td>
+                        {{ $env->repo }}
+                    </td>
+                    <td>
+                        {{ $env->branch }}
+                    </td>
+                    <td>
                         <a href="{!! route( 'project.show', $env->project->id )!!}">{{ $env->project->name }}</a>
                     </td>
                     <td>
                         <a href="{!! route( 'server.show', $env->server->id ) !!}">{{ $env->server->name }}</a>
                     </td>
+                    <th>
+                        <a href="{!! route( 'environment.edit', $env->id ) !!}" class="btn btn-warning">Edit</a>
+                    </th>
                 </tr>
             @endforeach
         @endif

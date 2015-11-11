@@ -20,6 +20,6 @@ class Environment extends Model
     }
 
     public function createToken() {
-        return $this->attributes['token'] = Hash::make( Carbon::now()->toDateTimeString() );
+        return $this->attributes['token'] = md5( Carbon::now()->toDateTimeString() );
     }
 }

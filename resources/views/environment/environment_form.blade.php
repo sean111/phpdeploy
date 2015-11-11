@@ -12,10 +12,6 @@
         {!! Form::text( 'path', null, [ 'class' => 'form-control' ]  ) !!}
     </div>
     <div class="form-group">
-        {!! Form::label( 'path', 'Path' ) !!}
-        {!! Form::text( 'path', null, [ 'class' => 'form-control' ]  ) !!}
-    </div>
-    <div class="form-group">
         {!! Form::label( 'repo', 'Repo URL' ) !!}
         {!! Form::text( 'repo', null, [ 'class' => 'form-control' ]  ) !!}
     </div>

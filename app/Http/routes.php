@@ -23,3 +23,5 @@ Route::get( '/servers', [ 'as' => 'server.index', 'uses' => 'ServerController@in
 
 Route::resource( 'environment', 'EnvironmentController' );
 Route::get( '/environments', [ 'as' => 'environment.index', 'uses' => 'EnvironmentController@index' ] );
+
+Route::get( '/deploy/{token}', [ 'as' => 'deploy', 'uses' => 'DeployController@run' ] );
