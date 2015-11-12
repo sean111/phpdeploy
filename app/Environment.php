@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class Environment extends Model
 {
     protected $table = 'environments';
-    protected $fillable = [ 'name', 'path', 'project_id', 'server_id' ];
+    protected $fillable = [ 'name', 'path', 'project_id', 'server_id', 'branch', 'repo' ];
 
     public function project() {
         return $this->belongsTo( 'App\Project' );

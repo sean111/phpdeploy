@@ -56,11 +56,13 @@ class EnvironmentController extends Controller
             'path' => \Input::get( 'path' ),
             'project_id' => \Input::get( 'project_id' ),
             'server_id' => \Input::get( 'server_id' ),
-            'repo' => \Inpit::get( 'repo' )
+            'repo' => \Input::get( 'repo' )
         ] );
 
         $environment->createToken();
         $environment->save();
+
+        $this->createDeployFile( $environment );
 
         return redirect()->route( 'environment.index' );
     }
@@ -91,6 +93,11 @@ class EnvironmentController extends Controller
         return view( 'environment.edit', [ 'target_env' => $env, 'projects' => $projects, 'servers' => $servers ] );
     }
 
+    public function test( $token ) {
+        $env = Environment::where( 'token', $token )->first();
+        $this->createDeployFile( $env );
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -116,6 +123,8 @@ class EnvironmentController extends Controller
         $env->server_id = \Input::get( 'server_id' );
         $env->project_id = \Input::get( 'project_id' );
         $env->save();
+        $this->createDeployFile( $env );
+        return redirect()->route( 'environments.show' );
     }
 
     /**
@@ -127,5 +136,33 @@ class EnvironmentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function createDeployFile( $env ) {
+        $filename = $env->token . ".php";
+        $template = \Storage::disk( 'file_templates' )->get( 'deploy.php' );
+        print "<pre>$template</pre>";
+        $template = str_replace( [
+            '{servername}',
+            '{host}',
+            '{username}',
+            '{token}',
+            '{name}',
+            '{path}',
+            '{repo}',
+            '{branch}'
+        ],
+        [
+            $env->server->name,
+            $env->server->host,
+            $env->server->username,
+            $env->token,
+            $env->name,
+            $env->path,
+            $env->repo,
+            $env->branch
+        ], $template );
+        print "Name: $filename<hr/>";
+        print "<pre>$template</pre>";
     }
 }
