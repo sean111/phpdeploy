@@ -119,6 +119,10 @@ class ServerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $server = Server::findOrFail( $id );
+        \Storage::disk( 'key_files' )->delete( $server->host );
+        \Storage::disk( 'key_files' )->delete( $server->host . '.pub' );
+        $server->delete();
+        return redirect()->route( 'server.index' );
     }
 }

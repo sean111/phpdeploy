@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\EnvironmentHistory;
 use App\Environment;
 use App\Project;
 use App\Server;
@@ -136,7 +137,11 @@ class EnvironmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $env = Environment::findOrFail( $id );
+        EnvironmentHistory::where( 'environment_id', $env->id )->delete();
+        \Storage::delete( $env->token . '.php' );
+        $env->delete();
+        return redirect()->route( 'environment.index' );
     }
 
     private function createDeployFile( $env ) {
