@@ -15,10 +15,12 @@
         {!! Form::label( 'username', 'Username' ) !!}
         {!! Form::text( 'username', null, [ 'class' => 'form-control' ] ) !!}
     </div>
+    @if( isset( $server ) )
     <div class="form-group">
         {!! Form::label( 'ssh_key', 'Public SSH Key' ) !!}
-        {!! Form::textarea( 'ssh_key', null, [ 'class' => 'form-control' ] ) !!}
+        {!! Form::textarea( 'ssh_key', null, [ 'class' => 'form-control', 'dissabled' => true ] ) !!}
     </div>
+    @endif
     @if( isset( $server ) )
         {!! Form::submit( 'Update Server', [ 'class' => 'btn btn-success' ] ) !!}
     @else

@@ -53,6 +53,11 @@ return [
             'root' => storage_path( 'templates' )
         ],
 
+        'key_files' => [
+            'driver'    => 'local',
+            'root' => storage_path( 'key_files' )
+        ],
+
         'ftp' => [
             'driver'   => 'ftp',
             'host'     => 'ftp.example.com',

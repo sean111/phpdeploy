@@ -11573,4 +11573,8 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
+$('.history').on('click', 'tr', function() {
+    window.location = this.getAttribute( 'data-link' );
+} );
+
 //# sourceMappingURL=all.js.map

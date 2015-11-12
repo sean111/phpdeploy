@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Server;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class ServerController extends Controller
 {
@@ -43,12 +45,16 @@ class ServerController extends Controller
             'name' => 'required',
             'host' => 'required',
             'username' => 'required',
-            'ssh_key' => 'required'
         ] );
         $name = \Input::get( 'name' );
         $host = \Input::get( 'host' );
         $username = \Input::get( 'username' );
-        $ssh_key = \Input::get( 'ssh_key' );
+
+        $key_file_path = \Storage::disk( 'key_files' )->getDriver()->getAdapter()->getPathPrefix();
+        $process = new Process( "ssh-keygen -t rsa -b 2048 -f $key_file_path/$host -q -N '' ");
+        $process->run();
+
+        $ssh_key = \Storage::disk( 'key_files' )->get( $host . '.pub' );
         $server = Server::create( [ 'name' => $name, 'host' => $host, 'username' => $username, 'ssh_key' => $ssh_key ] );
         return redirect()->route( 'server.index' );
     }
@@ -93,6 +99,10 @@ class ServerController extends Controller
         ] );
 
         $server = Server::findOrFail( $id );
+        if( $server->host != \Input::get( 'host' ) ) {
+            \Storage::disk( 'key_files' )->move( $server->host, \Input::get( 'host' ) );
+            \Storage::disk( 'key_files' )->move( $server->host . '.pub', \Input::get( 'host') . '.pub' );
+        }
         $server->name = \Input::get( 'name' );
         $server->host = \Input::get( 'host' );
         $server->username = \Input::get( 'username' );

@@ -22,4 +22,8 @@ class Environment extends Model
     public function createToken() {
         return $this->attributes['token'] = md5( Carbon::now()->toDateTimeString() );
     }
+
+    public function history() {
+        return $this->hasMany( 'App\EnvironmentHistory' );
+    }
 }

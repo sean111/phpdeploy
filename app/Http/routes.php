@@ -26,3 +26,5 @@ Route::get( '/environments', [ 'as' => 'environment.index', 'uses' => 'Environme
 Route::get( '/test/{token}', 'EnvironmentController@test' );
 
 Route::get( '/deploy/{token}', [ 'as' => 'deploy', 'uses' => 'DeployController@run' ] );
+
+Route::get( '/history/{id}', [ 'as' => 'history', 'uses' => 'HistoryController@show' ] );

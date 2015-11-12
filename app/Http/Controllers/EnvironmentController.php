@@ -48,7 +48,7 @@ class EnvironmentController extends Controller
             'path' => 'required',
             'project_id' => 'required',
             'server_id' => 'required',
-            'repo' => 'required'
+            'repo' => 'required',
         ] );
 
         $environment = Environment::create( [
@@ -56,7 +56,8 @@ class EnvironmentController extends Controller
             'path' => \Input::get( 'path' ),
             'project_id' => \Input::get( 'project_id' ),
             'server_id' => \Input::get( 'server_id' ),
-            'repo' => \Input::get( 'repo' )
+            'repo' => \Input::get( 'repo' ),
+            'branch' => \Input::get( 'branch' )
         ] );
 
         $environment->createToken();
@@ -124,7 +125,7 @@ class EnvironmentController extends Controller
         $env->project_id = \Input::get( 'project_id' );
         $env->save();
         $this->createDeployFile( $env );
-        return redirect()->route( 'environments.show' );
+        return redirect()->route( 'environment.index' );
     }
 
     /**
@@ -141,28 +142,26 @@ class EnvironmentController extends Controller
     private function createDeployFile( $env ) {
         $filename = $env->token . ".php";
         $template = \Storage::disk( 'file_templates' )->get( 'deploy.php' );
-        print "<pre>$template</pre>";
         $template = str_replace( [
             '{servername}',
             '{host}',
             '{username}',
             '{token}',
-            '{name}',
             '{path}',
             '{repo}',
-            '{branch}'
+            '{branch}',
+            '{key_path}'
         ],
         [
             $env->server->name,
             $env->server->host,
             $env->server->username,
             $env->token,
-            $env->name,
             $env->path,
             $env->repo,
-            $env->branch
+            $env->branch,
+            \Storage::disk( 'key_files' )->getDriver()->getAdapter()->getPathPrefix()
         ], $template );
-        print "Name: $filename<hr/>";
-        print "<pre>$template</pre>";
+        \Storage::put( $filename, $template );
     }
 }

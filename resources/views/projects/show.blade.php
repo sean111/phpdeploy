@@ -15,7 +15,18 @@
                         <a href="{!! route( 'deploy', $env->token ) !!}" class="btn btn-default">Deploy</a>
                     </div>
                 </div>
-                Environment history here....
+                <table class="table table-hover history">
+                @foreach( $env->history as $history )
+                    <tr class="{!! ( $history->status == 'fail' ) ? 'danger' : 'success' !!} history" data-link="{!! route( 'history', $history->id ) !!}">
+                        <td>
+                            {{ $history->status }}
+                        </td>
+                        <td>
+                            {{ $history->created_at }}
+                        </td>
+                    </div>
+                @endforeach
+                </table>
             </div>
         </div>
     @endforeach

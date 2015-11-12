@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>PHP Deployment System</title>
         <link rel="stylesheet" href="/css/app.css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack-extended.min.css">
     </head>
     <body>
         <nav class="navbar navbar-default" role="navigation">

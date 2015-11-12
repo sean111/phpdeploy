@@ -1,9 +1,10 @@
+<?php
 require 'recipe/common.php';
 
-server( '{servername}', '{host}', 22 )
+server( '{host}', '{host}', 22 )
     ->user( '{username}' )
-    ->identityFile( '{token}.pub' )
-    ->stage( '{name}' )
+    ->identityFile( '{key_path}{host}.pub','{key_path}{host}' )
+    ->stage( '{host}' )
     ->env( 'deploy_path', '{path}' );
 
 set( 'repository', '{repo}' );
