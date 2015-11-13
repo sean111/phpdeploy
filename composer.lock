@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e6b4dd6ddc4209cf03a3233349dae7db",
-    "content-hash": "a7d8ad6e985d4c1a9913dca717de8e68",
+    "hash": "4fcc0a5bc01d42822446cee0b3bab62a",
+    "content-hash": "a826d5c009fe4d94acc0faaaf6fc0171",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1101,6 +1101,50 @@
                 "shell"
             ],
             "time": "2015-11-12 16:18:56"
+        },
+        {
+            "name": "sensiolabs/ansi-to-html",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/ansi-to-html.git",
+                "reference": "02598b975c510e9e7d07d0be0a89c7a6b43464d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/ansi-to-html/zipball/02598b975c510e9e7d07d0be0a89c7a6b43464d6",
+                "reference": "02598b975c510e9e7d07d0be0a89c7a6b43464d6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "twig/twig": "Provides nice templating features"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "SensioLabs\\AnsiConverter": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "A library to convert a text with ANSI codes to HTML",
+            "time": "2015-07-22 03:07:58"
         },
         {
             "name": "swiftmailer/swiftmailer",

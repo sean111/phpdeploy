@@ -23,10 +23,10 @@ class DeployController extends Controller {
         }
         if( \Storage::exists( $token . '.php' ) ) {
             $tokenFile = \Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix() . "/" . $token . ".php";
-            $output = '';
+            $output = null;
             $error = false;
             foreach( $this->steps as $step ) {
-                $command = "dep --file=$tokenFile $step " . $env->server->host;
+                $command = "dep --ansi --file=$tokenFile $step " . $env->server->host;
                 $output .= $command . "\n";
                 $process = new Process( $command );
                 $process->run();
@@ -43,8 +43,7 @@ class DeployController extends Controller {
                 'environment_id' => $env->id,
                 'status' => ( $error ) ? 'fail' : 'success',
                 'history' => $output
-            ] );
-            print "<pre>$output</pre>";
+            ] );            
             return json_encode( [ 'error' => $error, 'output' => $output ] );
         }
     }

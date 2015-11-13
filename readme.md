@@ -17,3 +17,4 @@ A web based gui for the dev tool from deployer.org
 * Add user permissions
 * Make sure a deploy only triggers for the target branch
 * Overhaul the UI
+* Searching

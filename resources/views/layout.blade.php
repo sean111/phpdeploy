@@ -6,6 +6,7 @@
         <title>PHP Deployment System</title>
         <link rel="stylesheet" href="/css/app.css" media="screen" charset="utf-8">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack-extended.min.css">
+        @yield( 'stylesheets' )
     </head>
     <body>
         <nav class="navbar navbar-default" role="navigation">
@@ -44,5 +45,6 @@
         </div>
 
         <script type="text/javascript" src="/js/all.js"></script>
+        @yield( 'javascript' )
     </body>
 </html>

@@ -7771,18 +7771,6 @@ button.close {
 .history {
   cursor: pointer; }
 
-pre.danger {
-  background-color: #f2dede;
-  color: #a94442;
-  border-color: #ebccd1;
-  font-family: Hack, monospace; }
-
-pre.success {
-  background-color: #dff0d8;
-  color: #3c763d;
-  border-color: #d6e9c6;
-  font-family: Hack, monospace; }
-
 span.danger {
   color: #a94442; }
 
