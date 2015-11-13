@@ -12,9 +12,8 @@ A web based gui for the dev tool from deployer.org
 
 
 ## ToDo
-* Replace / with something useful....
-* Add user authentication
-* Add user permissions
+* Tie group permissions to manual deployments
+* Allow some environments to not be deployed by the token
 * Make sure a deploy only triggers for the target branch
 * Overhaul the UI
 * Searching

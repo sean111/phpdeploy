@@ -3,9 +3,9 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title> 
-			@section('title') 
-			@show 
+		<title>
+			@section('title')
+			@show
 		</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,14 +31,14 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
-	
+
 	</head>
 
 	<body>
-		
+
 
 		<!-- Navbar -->
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-default navbar-fixed-top">
 	      <div class="container">
 	        <div class="navbar-header">
 	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -89,7 +89,7 @@
 		================================================== -->
 		<script src="{{ asset('packages/rydurham/sentinel/js/jquery-2.1.3.min.js') }}"></script>
 		<script src="{{ asset('packages/rydurham/sentinel/js/bootstrap.min.js') }}"></script>
-		<script src="{{ asset('packages/rydurham/sentinel/js/restfulizer.js') }}"></script> 
+		<script src="{{ asset('packages/rydurham/sentinel/js/restfulizer.js') }}"></script>
 		<!-- Thanks to Zizaco for the Restfulizer script.  http://zizaco.net  -->
 	</body>
 </html>
