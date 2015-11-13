@@ -27,9 +27,10 @@
                 <li><a href="{!! route( 'environment.index' ) !!}"><i class="fa fa-plug fa-1"></i> Environments</a></li>
 
               </ul>
-              <form class="navbar-form navbar-right" role="search">
+              <form class="navbar-form navbar-right" role="search" method="post" action='{!! route( 'search' ) !!}'>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Search" name="term">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>

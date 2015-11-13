@@ -67,7 +67,8 @@ class ServerController extends Controller
      */
     public function show($id)
     {
-        //
+        $server = Server::findOrFail( $id );
+        return view( 'server.show', [ 'server' => $server ] );
     }
 
     /**

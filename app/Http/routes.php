@@ -28,5 +28,7 @@ Route::group( [ 'middleware' => 'sentry.auth' ], function() {
 
     Route::get( '/deploy/{token}', [ 'as' => 'deploy', 'uses' => 'DeployController@run' ] );
 
-    Route::get( '/history/{id}', [ 'as' => 'history', 'uses' => 'HistoryController@show' ] );    
+    Route::get( '/history/{id}', [ 'as' => 'history', 'uses' => 'HistoryController@show' ] );
+
+    Route::post( '/search', [ 'as' => 'search', 'uses' => 'DefaultController@search' ] );
 } );

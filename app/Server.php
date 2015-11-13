@@ -8,7 +8,8 @@ class Server extends Model
 {
     protected $table = 'servers';
     protected $fillable = [ 'name', 'host', 'username', 'ssh_key' ];
+
     public function environments() {
-        return $this->belongsToMany( 'App\Environment' );
+        return $this->belongsToMany( 'App\Environment', 'server_id' );
     }
 }

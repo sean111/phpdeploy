@@ -25,7 +25,7 @@
             @foreach($servers as $server)
                 <tr>
                     <td>
-                        {{ $server->name }}
+                        <a href="{!! route( 'server.show', $server->id )!!}">{{ $server->name }}</a>
                     </td>
                     <td>
                         {{ $server->host }}
