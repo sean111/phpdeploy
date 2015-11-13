@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4fcc0a5bc01d42822446cee0b3bab62a",
-    "content-hash": "a826d5c009fe4d94acc0faaaf6fc0171",
+    "hash": "f90b03eaede4050bf3dedc1833df9cae",
+    "content-hash": "8ae3548774ab69229fe504ad704c1f7f",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -60,6 +60,106 @@
                 "webprofiler"
             ],
             "time": "2015-09-09 11:39:27"
+        },
+        {
+            "name": "cartalyst/sentry",
+            "version": "v2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/sentry.git",
+                "reference": "0ae4158353e41cc4061631c86c1cddd67c1f23be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/0ae4158353e41cc4061631c86c1cddd67c1f23be",
+                "reference": "0ae4158353e41cc4061631c86c1cddd67c1f23be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "illuminate/cookie": ">=4.0.9,<4.2",
+                "illuminate/database": ">=4.0.9,<4.2",
+                "illuminate/http": ">=4.0.9,<4.2",
+                "illuminate/session": ">=4.0.9,<4.2",
+                "ircmaxell/password-compat": "1.0.*",
+                "mockery/mockery": "0.9.*"
+            },
+            "suggest": {
+                "happydemon/txt": "Required Text helpers when using the Kohana implementation",
+                "illuminate/database": "Default sentry user, group and throttling implementations.",
+                "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support."
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "frameworks": [
+                    "Laravel 3",
+                    "Laravel 4",
+                    "CodeIgniter 3",
+                    "FuelPHP 1",
+                    "Kohana"
+                ],
+                "versions": {
+                    "1": "1.1/master",
+                    "2": "master"
+                },
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/Cartalyst/Sentry/Groups/Exceptions.php",
+                    "src/Cartalyst/Sentry/Throttling/Exceptions.php",
+                    "src/Cartalyst/Sentry/Users/Exceptions.php",
+                    "src/migrations"
+                ],
+                "psr-0": {
+                    "Cartalyst\\Sentry": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "ben.corlett@cartalyst.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com"
+                },
+                {
+                    "name": "Bruno Gaspar",
+                    "email": "bruno.gaspar@cartalyst.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dan Syme",
+                    "email": "dan.syme@cartalyst.com",
+                    "role": "Creator & Designer"
+                },
+                {
+                    "name": "Daniel Petrie",
+                    "email": "dan.petrie@cartalyst.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP 5.3+ Fully-featured Authentication & Authorization System",
+            "keywords": [
+                "auth",
+                "codeigniter",
+                "fuelphp",
+                "kohana",
+                "laravel",
+                "security"
+            ],
+            "time": "2015-03-06 03:17:20"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -270,6 +370,122 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "graham-campbell/manager",
+            "version": "v2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
+                "reference": "2fb1898f21107d94a30f4660e5147c5bad04c7b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/2fb1898f21107d94a30f4660e5147c5bad04c7b9",
+                "reference": "2fb1898f21107d94a30f4660e5147c5bad04c7b9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.0.*|5.1.*",
+                "illuminate/support": "5.0.*|5.1.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench-core": "~1.0",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "~4.8|~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Manager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
+                }
+            ],
+            "description": "Manager Provides Some Manager Functionality For Laravel 5",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Manager",
+                "Laravel-Manager",
+                "connector",
+                "framework",
+                "interface",
+                "laravel",
+                "manager"
+            ],
+            "time": "2015-10-06 16:53:10"
+        },
+        {
+            "name": "hashids/hashids",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivanakimov/hashids.php.git",
+                "reference": "991a88b01b01b053fbd39a56780a66e572f1dc1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/991a88b01b01b053fbd39a56780a66e572f1dc1a",
+                "reference": "991a88b01b01b053fbd39a56780a66e572f1dc1a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Hashids": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Akimov",
+                    "email": "ivan@barreleye.com",
+                    "homepage": "https://twitter.com/IvanAkimov"
+                }
+            ],
+            "description": "Generate hashids like YouTube or Bitly from numbers to obfuscate your database primary ids, or navigate to the right shard.",
+            "homepage": "http://hashids.org/php",
+            "keywords": [
+                "bitly",
+                "decrypt",
+                "encrypt",
+                "hash",
+                "hashid",
+                "hashids",
+                "ids",
+                "obfuscate",
+                "youtube"
+            ],
+            "time": "2015-01-21 00:49:41"
         },
         {
             "name": "illuminate/html",
@@ -1103,6 +1319,62 @@
             "time": "2015-11-12 16:18:56"
         },
         {
+            "name": "rydurham/sentinel",
+            "version": "v2.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rydurham/Sentinel.git",
+                "reference": "6dde700464409fa1a386cf1fb2dca44f7085aa97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rydurham/Sentinel/zipball/6dde700464409fa1a386cf1fb2dca44f7085aa97",
+                "reference": "6dde700464409fa1a386cf1fb2dca44f7085aa97",
+                "shasum": ""
+            },
+            "require": {
+                "cartalyst/sentry": "2.1.*",
+                "illuminate/contracts": "5.1.*@dev",
+                "illuminate/support": "5.1.*@dev",
+                "php": ">=5.5.9",
+                "vinkla/hashids": "~2.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "3.1.x@dev",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/seeds",
+                    "src/controllers",
+                    "tests"
+                ],
+                "psr-4": {
+                    "Sentinel\\": "src/Sentinel"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Durham",
+                    "email": "ryan@stagerightlabs.com",
+                    "homepage": "http://stagerightlabs.com"
+                }
+            ],
+            "description": "An implementation of the Sentry User Manager for Laravel.",
+            "keywords": [
+                "auth",
+                "laravel",
+                "sentry"
+            ],
+            "time": "2015-08-17 01:11:56"
+        },
+        {
             "name": "sensiolabs/ansi-to-html",
             "version": "v1.1.2",
             "source": {
@@ -1878,6 +2150,68 @@
             "time": "2015-10-25 17:17:38"
         },
         {
+            "name": "vinkla/hashids",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/hashids.git",
+                "reference": "524843f5c287032573daef3273efaebdce96104f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinkla/hashids/zipball/524843f5c287032573daef3273efaebdce96104f",
+                "reference": "524843f5c287032573daef3273efaebdce96104f",
+                "shasum": ""
+            },
+            "require": {
+                "graham-campbell/manager": "~2.2",
+                "hashids/hashids": "~1.0",
+                "illuminate/contracts": "5.0.*|5.1.*",
+                "illuminate/support": "5.0.*|5.1.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~3.0",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vinkla\\Hashids\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "hello@vinkla.com"
+                }
+            ],
+            "description": "A Hashids bridge for Laravel",
+            "keywords": [
+                "bitly",
+                "decrypt",
+                "encrypt",
+                "hash",
+                "hashid",
+                "hashids",
+                "ids",
+                "laravel",
+                "obfuscate",
+                "youtube"
+            ],
+            "time": "2015-10-07 06:22:42"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v1.1.1",
             "source": {
@@ -1925,6 +2259,75 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "cartalyst/support",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/support.git",
+                "reference": "c90931d25e89734ba89875a769af6b2e050593a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/support/zipball/c90931d25e89734ba89875a769af6b2e050593a5",
+                "reference": "c90931d25e89734ba89875a769af6b2e050593a5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/mail": "~4.1|~5.0",
+                "illuminate/validation": "~4.1|~5.0",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cartalyst\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com"
+                },
+                {
+                    "name": "Bruno Gaspar",
+                    "email": "bruno.gaspar@cartalyst.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dan Syme",
+                    "email": "dan.syme@cartalyst.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "Suhayb Wardany",
+                    "email": "su.wardany@cartalyst.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Support helpers.",
+            "keywords": [
+                "cartalyst",
+                "helper",
+                "laravel",
+                "support"
+            ],
+            "time": "2015-06-24 13:00:53"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",

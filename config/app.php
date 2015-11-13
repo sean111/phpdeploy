@@ -150,6 +150,7 @@ return [
         */
         Barryvdh\Debugbar\ServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
+        Sentinel\SentinelServiceProvider::class,
 
     ],
 

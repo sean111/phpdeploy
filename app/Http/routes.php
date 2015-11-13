@@ -11,20 +11,22 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [ 'as' => 'home', function () {
     return view('welcome');
-});
+} ] );
 
-Route::resource( 'project', 'ProjectController' );
-Route::get( '/projects', [ 'as' => 'project.index', 'uses' => 'ProjectController@index' ] );
+Route::group( [ 'middleware' => 'sentry.auth' ], function() {
+    Route::resource( 'project', 'ProjectController' );
+    Route::get( '/projects', [ 'as' => 'project.index', 'uses' => 'ProjectController@index' ] );
 
-Route::resource( 'server', 'ServerController' );
-Route::get( '/servers', [ 'as' => 'server.index', 'uses' => 'ServerController@index' ] );
+    Route::resource( 'server', 'ServerController' );
+    Route::get( '/servers', [ 'as' => 'server.index', 'uses' => 'ServerController@index' ] );
 
-Route::resource( 'environment', 'EnvironmentController' );
-Route::get( '/environments', [ 'as' => 'environment.index', 'uses' => 'EnvironmentController@index' ] );
-Route::get( '/test/{token}', 'EnvironmentController@test' );
+    Route::resource( 'environment', 'EnvironmentController' );
+    Route::get( '/environments', [ 'as' => 'environment.index', 'uses' => 'EnvironmentController@index' ] );
+    Route::get( '/test/{token}', 'EnvironmentController@test' );
 
-Route::get( '/deploy/{token}', [ 'as' => 'deploy', 'uses' => 'DeployController@run' ] );
+    Route::get( '/deploy/{token}', [ 'as' => 'deploy', 'uses' => 'DeployController@run' ] );
 
-Route::get( '/history/{id}', [ 'as' => 'history', 'uses' => 'HistoryController@show' ] );
+    Route::get( '/history/{id}', [ 'as' => 'history', 'uses' => 'HistoryController@show' ] );    
+} );
